@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #grid-container {
+        text-align: center;
+    }
+    .grid-row {
+        display: block;
+    }
+    .grid-elem {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+    }
+    .grid-content {
+        vertical-align: middle;
+        text-align: center;
+        font-size: 50px;
+        font-weight: 900;
+        margin: 20px 0 0 0;
+    }
+    #menu {
+        text-align: center;
+    }
+</style>
+<body>
+
+<div id="content">
+</div>
+
+<div id="menu">
+    <input type="button" id="refresh" value="Обновить">
+</div>
+
+<script type="text/template" id="grid-tmpl">
+    <div id="grid-container">
+        <% for( var i = 0; i < data['rows'].length; i++ ) { %>
+        <div class="grid-row">
+            <% for( var j = 0; j < data['rows'][i].length; j++ ) { %>
+            <div class="grid-elem" style="background-color: <%=colors[data['rows'][i][j]-1]%>0.5)">
+                <p class="grid-content"><%=data['rows'][i][j]%></p>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+</script>
+
+<script src="jquery.min.js"></script>
+<script src="lodash.min.js"></script>
+<script src="application.js"></script>
+</body>
+</html>
